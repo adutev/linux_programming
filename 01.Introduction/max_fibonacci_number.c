@@ -1,5 +1,4 @@
 #include <stdio.h>
-#include <stdio.h>
 
 int main(){
 	unsigned long long n1 = 1;
