@@ -9,36 +9,53 @@
  *      start new number
  *      add current digit to current number
  * check if
- * 
+ * check first in negative
  */
 int main() {
-    char* line = NULL;
-    size_t size = 0;
-    int input_length = getline(&line, &size, stdin);
+    int operators[100];
+    int count = 0;
+    //char* line = NULL;
+    size_t size = 100;
+    //int input_length = getline(&line, &size, stdin);
     
-//    int in_a_word = 0;
-//    
-//    int i;
-//    for (i = 0; i < size; i++) {
-//        
-//        if(line[i] >= '0' && line[i] <= '9'){
-//            if(in_a_word) {
-//                printf("%c", line[i]);
-//            } else {
-//                in_a_word = 1;
-//                printf("\n%c", line[i]);
-//                
-//            }            
-//        } else {
-//            in_a_word = 0;
-//        }
-//    }
-    int num1;
-    char operator;
-    int result = sscanf(line, "%d %c", &num1, &operator);
-    while(result != NULL){
-        sscanf(line, "%d %c", &num1, &operator);
-        printf("%d %c\n", num1, operator);
+    
+    char line[100] = "32+ 212*-83 + 7";
+    int in_a_word = 0;
+    
+    int i;
+    char tmp[11];
+    int tmp_count = 10;
+    for (i = 0; i < size; i++) {
+      
+        if (line[i] >= '0' && line[i] <= '9') {
+            if (in_a_word) {
+                tmp[tmp_count--] = line[i];
+            } else {
+                in_a_word = 1;
+                tmp[tmp_count--] = line[i];
+            }
+        } else {
+            if(in_a_word){
+               printf("N: %s\n", tmp);
+            }
+            in_a_word = 0;
+            tmp_count = 10;
+
+        }
     }
+
+    int op;
+   
+    for (i = 0; i < 100; i++) {
+        char ch = line[i];
+        if (ch == '+' || ch == '-' || ch == '*' || ch == '/') {
+            operators[count++] = ch;
+        }
+    }
+
+    for (i = 0; i < count; i++) {
+        printf("%d\n", operators[i]);
+    }
+
     return 0;
 }
