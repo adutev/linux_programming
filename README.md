@@ -1,1 +1,2 @@
-# linux_programming
+# Linux Programming Course Softuni
+
