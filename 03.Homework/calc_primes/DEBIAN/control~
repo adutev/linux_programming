@@ -1,0 +1,9 @@
+Package: calculate_primes
+Version: 0.1
+Section: custom
+Priority: optional
+Architecture: all
+Essential: no
+Installed-Size: 1024
+Maintainer: adutev@gmail.com
+Description: Calculate larget prime number for 1.8 sec
